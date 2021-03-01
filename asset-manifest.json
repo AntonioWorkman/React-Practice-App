@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/AntonioWorkman/React-Practice-App.git/static/css/main.3dedd0a4.chunk.css",
+    "main.js": "/AntonioWorkman/React-Practice-App.git/static/js/main.30be9e93.chunk.js",
+    "main.js.map": "/AntonioWorkman/React-Practice-App.git/static/js/main.30be9e93.chunk.js.map",
+    "runtime-main.js": "/AntonioWorkman/React-Practice-App.git/static/js/runtime-main.a5c697a0.js",
+    "runtime-main.js.map": "/AntonioWorkman/React-Practice-App.git/static/js/runtime-main.a5c697a0.js.map",
+    "static/js/2.674da194.chunk.js": "/AntonioWorkman/React-Practice-App.git/static/js/2.674da194.chunk.js",
+    "static/js/2.674da194.chunk.js.map": "/AntonioWorkman/React-Practice-App.git/static/js/2.674da194.chunk.js.map",
+    "static/js/3.359f7232.chunk.js": "/AntonioWorkman/React-Practice-App.git/static/js/3.359f7232.chunk.js",
+    "static/js/3.359f7232.chunk.js.map": "/AntonioWorkman/React-Practice-App.git/static/js/3.359f7232.chunk.js.map",
+    "index.html": "/AntonioWorkman/React-Practice-App.git/index.html",
+    "static/css/main.3dedd0a4.chunk.css.map": "/AntonioWorkman/React-Practice-App.git/static/css/main.3dedd0a4.chunk.css.map",
+    "static/js/2.674da194.chunk.js.LICENSE.txt": "/AntonioWorkman/React-Practice-App.git/static/js/2.674da194.chunk.js.LICENSE.txt",
+    "static/media/cover.9eca28fd.png": "/AntonioWorkman/React-Practice-App.git/static/media/cover.9eca28fd.png",
+    "static/media/logo.cd2fb44b.png": "/AntonioWorkman/React-Practice-App.git/static/media/logo.cd2fb44b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a5c697a0.js",
+    "static/js/2.674da194.chunk.js",
+    "static/css/main.3dedd0a4.chunk.css",
+    "static/js/main.30be9e93.chunk.js"
+  ]
+}

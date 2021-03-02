@@ -1,22 +1,14 @@
 import React from 'react';
-import './styles/main.css';
-import Logo from './images/logo.png';
-import Cover from './images/cover.png';
+import '../styles/main.css';
+import Logo from '../images/logo.png';
+import Cover from '../images/cover.png';
+import {Link} from "react-router-dom";
 
 function Login() {
     return (
-        <main class="w-full h-screen flex items-center px-1 lg:px-32 bg-gradient-to-r from-purple-400 to-blue-500">
-            {/* <header class="left-0 top-0 p-6 lg:p-32">
-            <img src={Logo} class="transform scale-75 rounded"></img>
-          </header> */}
-            {/* <header class="w-full absolute left-0 top-0 p-3 lg:p-3">
-                <div class="flex justify-between">
-                    <div>
-                    <img src={Logo} class="transform h-20 w-20 rounded"></img>
-                    </div>
-                </div>
-            </header> */}
 
+        <main class="w-full h-screen flex items-center px-1 lg:px-32 bg-gradient-to-r from-purple-400 to-blue-500">
+        
             <div class="w-full md:w-12/12 xl:w-8/12 ">
                 {/* <h1 class="text-5xl lg:text-6xl font-bold text-red-500">FunstaGram</h1> */}
                 <img src={Cover} class="transform h-40 w-99 rounded"></img>
@@ -27,7 +19,7 @@ function Login() {
                 <form class="shadow-lg w-80 p-4 flex flex-col bg-white rounded-lg">
                     <input type="text" placeholder="Email" class="mt-8 mb-3 py-3 px-4 border border-gray-400 focus:outline-none rounded-md focus:ring-1 ring-purple-500" />
                     <input type="text" placeholder="Pasword" class="mb-3 py-3 px-4 border border-gray-400 focus:outline-none rounded-md focus:ring-1 ring-purple-500" />
-                    <button class="w-full bg-purple-700 text-white p-3 rounded-lg font-semibold text-lg">Login</button>
+                    <Link to="/home"><button class="w-full bg-purple-700 text-white p-3 rounded-lg font-semibold text-lg">Login</button></Link>
                     <a class="text-purple-400 text-center my-2">Forgot Pasword?</a>
                     <br />
                     <hr />

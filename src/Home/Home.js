@@ -4,6 +4,7 @@ import API from './API';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Masonry from 'react-masonry-css';
 import Image from './Image';
+import Navbar from '../NavBar/Navbar';
 
 
 let pageNum = 1;
@@ -33,8 +34,11 @@ const Home = () => {
     console.log(imagesArray);
 
     return (
-            <main class="mx-fill flex-col flex items-center">
-                <div class="overflow-y-auto p-1 ">
+        <>
+        <Navbar/>
+        <div class="bg-gradient-to-r from-purple-400 to-blue-500">
+            <main class="max-w-xl mx-auto flex-col flex items-center">
+                <div class="overflow-y-auto p-1">
                     <InfiniteScroll dataLength={imagesArray.length} pageStart={0} loadMore={() => fetchImages(++pageNum)} hasMore={pageNum < totalPages ? true : false}>
                         <Masonry
                             breakpointCols={1}
@@ -46,11 +50,9 @@ const Home = () => {
                     </InfiniteScroll>
                 </div>
             </main>
+            </div>
+            </>
     )
 }
-
-
-
-
 
 export default Home;

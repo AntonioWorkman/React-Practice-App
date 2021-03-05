@@ -1,10 +1,44 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import '../styles/main.css';
-import Logo from '../images/logo.png';
 import Cover from '../images/cover.png';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useAuth, currentUser } from '../Context/AuthContext'
+import { useAlert } from 'react-alert'
+
 
 function Register() {
+    const alert = useAlert()
+
+    const emailRef = useRef()
+    const passwordRef = useRef()
+    const pswdConfirmRef = useRef()
+
+    const { register } = useAuth()
+
+    const [error, setError] = useState("")
+    const [loading, setLoading] = useState(false)
+    const history = useHistory()
+
+    async function handleSubmit(e) {
+        e.preventDefault()
+
+        if (passwordRef.current.value !== pswdConfirmRef.current.value) {
+            return setError("Passwords do not match")
+        }
+
+        try {
+            setError("")
+            setLoading(true)
+            await register(emailRef.current.value, passwordRef.current.value)
+            history.push("/")
+        } catch {
+            setError("Failed to create an account")
+        }
+
+        setLoading(false)
+    }
+
+
     return (
 
         <main class="w-full h-screen flex items-center px-1 lg:px-32 bg-gradient-to-r from-purple-400 to-blue-500">
@@ -20,9 +54,10 @@ function Register() {
                     <div class="w-full lg:w-4/12 px-4">
                         <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white border-0">
                             <div class="rounded-t mb-0 px-6 py-6">
-                            
-                                <form>
-                                <div class="mb-4 font-bold text-2xl text-purple-900 text-center">Register Now</div>
+                                /*User to check if user has been added. */
+                                {currentUser && currentUser.email}
+                                <form onSubmit={handleSubmit}>
+                                    <div class="mb-4 font-bold text-2xl text-purple-900 text-center">Register Now</div>
                                     <div class="relative w-full mb-3">
                                         <label
                                             class="block uppercase text-gray-700 text-xs font-bold mb-2"
@@ -50,7 +85,9 @@ function Register() {
                                         <input
                                             type="email"
                                             class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
-                                            placeholder="Email" />
+                                            placeholder="Email"
+                                            required
+                                            ref={emailRef} />
                                     </div>
 
                                     <div class="relative w-full mb-3">
@@ -60,7 +97,9 @@ function Register() {
                                         <input
                                             type="password"
                                             class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
-                                            placeholder="Password" />
+                                            placeholder="Password"
+                                            required
+                                            ref={passwordRef} />
                                     </div>
 
                                     <div class="relative w-full mb-3">
@@ -70,13 +109,18 @@ function Register() {
                                         <input
                                             type="password"
                                             class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
-                                            placeholder="Confirm Password" />
+                                            placeholder="Confirm Password"
+                                            required
+                                            ref={pswdConfirmRef} />
                                     </div>
 
                                     <div class="text-center mt-6">
                                         <Link to="/home"><button
                                             class="bg-purple-900 text-white active:bg-purple-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-                                            type="button">Register</button></Link>
+                                            type="button"
+                                            disabled={loading} onClick={() => {
+                                                alert.show(error)
+                                            }}>Register</button></Link>
 
                                         <Link to="/login"><label
                                             class="text-grey-500 text-sm font-bold uppercase"
